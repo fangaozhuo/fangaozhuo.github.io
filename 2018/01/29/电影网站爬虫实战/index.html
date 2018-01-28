@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="爬虫," />
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="梵高的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="明确任务开始实战 任务1爬取电影网页的票房，分类型来对电影的票房数据进行分析，简单得到最近受欢迎的电影类型。 任务2由于票房是随着时间一直在增长的，想办法写一个脚本让电脑即时自动抓取电影网页数据，并在指定文件夹生成csv文件以便浏览1.下载并解析网页123456import requests #获取页面from bs4 import BeautifulSoup #解析网页url = &amp;apos;h">
+<meta name="keywords" content="爬虫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="电影网站爬虫实战">
+<meta property="og:url" content="http://yoursite.com/2018/01/29/电影网站爬虫实战/index.html">
 <meta property="og:site_name" content="梵高的博客">
+<meta property="og:description" content="明确任务开始实战 任务1爬取电影网页的票房，分类型来对电影的票房数据进行分析，简单得到最近受欢迎的电影类型。 任务2由于票房是随着时间一直在增长的，想办法写一个脚本让电脑即时自动抓取电影网页数据，并在指定文件夹生成csv文件以便浏览1.下载并解析网页123456import requests #获取页面from bs4 import BeautifulSoup #解析网页url = &amp;apos;h">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-28T14:47:19.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="梵高的博客">
+<meta name="twitter:title" content="电影网站爬虫实战">
+<meta name="twitter:description" content="明确任务开始实战 任务1爬取电影网页的票房，分类型来对电影的票房数据进行分析，简单得到最近受欢迎的电影类型。 任务2由于票房是随着时间一直在增长的，想办法写一个脚本让电脑即时自动抓取电影网页数据，并在指定文件夹生成csv文件以便浏览1.下载并解析网页123456import requests #获取页面from bs4 import BeautifulSoup #解析网页url = &amp;apos;h">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/01/29/电影网站爬虫实战/"/>
 
 
 
 
 
-  <title>梵高的博客</title>
+  <title>电影网站爬虫实战 | 梵高的博客</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 	<a href="https://fangaozhuo.github.io/"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/8b6b8ccc6da3aa5722903da7b58eb5ab1081adee/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_orange_ff7600.png"></a>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +218,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/29/电影网站爬虫实战/" itemprop="url">电影网站爬虫实战</a></h1>
+          <h1 class="post-title" itemprop="name headline">电影网站爬虫实战</h1>
         
 
         <div class="post-meta">
@@ -298,9 +300,7 @@
       
 
       
-        
-          
-            <h1 id="明确任务开始实战"><a href="#明确任务开始实战" class="headerlink" title="明确任务开始实战"></a>明确任务开始实战</h1><ul>
+        <h1 id="明确任务开始实战"><a href="#明确任务开始实战" class="headerlink" title="明确任务开始实战"></a>明确任务开始实战</h1><ul>
 <li>任务1<br>爬取<a href="http://www.cbooo.cn/year?year=2018" target="_blank" rel="noopener">电影网页</a>的票房，分类型来对电影的票房数据进行分析，简单得到最近受欢迎的电影类型。</li>
 <li>任务2<br>由于票房是随着时间一直在增长的，想办法写一个脚本让电脑即时自动抓取电影网页数据，并在指定文件夹生成csv文件以便浏览<h1 id="1-下载并解析网页"><a href="#1-下载并解析网页" class="headerlink" title="1.下载并解析网页"></a>1.下载并解析网页</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import requests #获取页面</span><br><span class="line">from bs4 import BeautifulSoup #解析网页</span><br><span class="line"></span><br><span class="line">url = &apos;http://www.cbooo.cn/year?year=2018&apos;</span><br><span class="line">rawhtml = requests.get(url).content #先用request去get url 得到里面的content</span><br><span class="line">soup = BeautifulSoup(rawhtml, &apos;html.parser&apos;) #用beautifulsoup去解析原始的html，这里用的解析器是html.parser,也可以用lxml</span><br></pre></td></tr></table></figure>
 </li>
@@ -315,8 +315,6 @@
 <h1 id="4-生成文件"><a href="#4-生成文件" class="headerlink" title="4.生成文件"></a>4.生成文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import time #调用时间函数</span><br><span class="line">time.time()</span><br><span class="line">timenow = time.strftime(&apos;%Y-%m-%d %H-%M-%S&apos;,time.localtime(time.time()))#生成实时时间 年月日小时分秒</span><br><span class="line">timenow</span><br><span class="line">filename = &apos;movie &apos; + timenow + &apos;.csv&apos;#以实时时间来命名文件名，方便保存查看</span><br><span class="line">filename</span><br><span class="line">df.to_csv(&apos;c:/adata/&apos;+filename)#先新建一个文件夹，在该文件夹下面生成一个csv文件，注意这个文件夹一定要真实存在</span><br></pre></td></tr></table></figure>
 <h1 id="5-实时抓取"><a href="#5-实时抓取" class="headerlink" title="5.实时抓取"></a>5.实时抓取</h1><p>生成.py文件后，在命令框输入python空格+绝对路径+.py文件名（不加python空格，有的电脑会报错） 即可运行程序,若 .py文件没有在c盘中,还需要切换到别的盘,如 输入 d: ,即可切换到d盘.最后再写一个.bat的脚本文件,如写入 python空格+ .py文件的绝对路径 来定时运行此程序.</p>
 
-          
-        
       
     </div>
     
@@ -331,264 +329,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/jupyter-notebook-基本技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bigvan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/van.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="梵高的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/28/jupyter-notebook-基本技巧/" itemprop="url">jupyter notebook 基本技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T19:17:17+08:00">
-                2018-01-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/爬虫/" rel="tag"># 爬虫</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="以下是我总结的一些jupyter-notebook的基本操作"><a href="#以下是我总结的一些jupyter-notebook的基本操作" class="headerlink" title="以下是我总结的一些jupyter notebook的基本操作"></a>以下是我总结的一些jupyter notebook的基本操作</h1><ul>
-<li>1.code和markdown单元格模式的互换,code编程模式，markdown笔记模式（markdown支持HTML的） </li>
-<li>2.在单元格里操作上一步下一步的快捷方式 上一步ctrl+z 下一步ctrl+y</li>
-<li>3.加注释 某一行后面加注释 #+注释内容  批量注释 选取批量内容 ctrl+/</li>
-<li>4.注意在写程序的时候，括号，引号等符号都要在英语状态下输入，否则会报错SyntaxError: invalid character in identifie</li>
-<li>5.快捷运行单元格 ctrl+enter</li>
-<li>6.在jupyter下面 一个大程序有的时候要从开头的单元格开始执行 如果从中途单元格开始执行的话会报错</li>
-<li>7.在某个单元格上面新建一个单元格 鼠标选中左边，变蓝后 按a 同理 按b在下面新建一个单元格 删除的话选中后点击上面的剪刀</li>
-<li>8.查看一个已经运行的markdown模式的单元格的原始程序，在单元格右侧双击即可</li>
-<li>9.code模式下的单元格运行显示框如果太长，鼠标点击运行显示框左侧一下，即可变成有滑轮的短屏模式；在点击一下，又可以恢复到长屏模式；任意模式下，双击两次，即可隐藏运行显示框</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
       
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/姐姐-生日快乐/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bigvan">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/van.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="梵高的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/01/28/姐姐-生日快乐/" itemprop="url">姐姐 生日快乐</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-28T18:22:33+08:00">
-                2018-01-28
-              </time>
+              <a href="/2018/01/28/jupyter-notebook-基本技巧/" rel="next" title="jupyter notebook 基本技巧">
+                <i class="fa fa-chevron-left"></i> jupyter notebook 基本技巧
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>渐渐的，发现周围的人都有了自己的微信公众号和博客，所以索性就用hexo+github搭了一个简陋的博客，用来记录生活和学习的点滴。这是我的第一篇文章，恰好赶上姐姐的生日，祝姐姐生日快乐，越来越美丽，身体健康，家庭美满幸福！</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -598,10 +368,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -609,6 +380,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -629,8 +404,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -685,6 +469,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#明确任务开始实战"><span class="nav-number">1.</span> <span class="nav-text">明确任务开始实战</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-下载并解析网页"><span class="nav-number">2.</span> <span class="nav-text">1.下载并解析网页</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-数据提取"><span class="nav-number">3.</span> <span class="nav-text">2.数据提取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#提取包含电影更多信息的网址"><span class="nav-number">3.1.</span> <span class="nav-text">提取包含电影更多信息的网址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取电影封面图片地址"><span class="nav-number">3.2.</span> <span class="nav-text">提取电影封面图片地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取电影名"><span class="nav-number">3.3.</span> <span class="nav-text">提取电影名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取电影类型"><span class="nav-number">3.4.</span> <span class="nav-text">提取电影类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取电影票房"><span class="nav-number">3.5.</span> <span class="nav-text">提取电影票房</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-转为数据框，分析数据"><span class="nav-number">4.</span> <span class="nav-text">3.转为数据框，分析数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-生成文件"><span class="nav-number">5.</span> <span class="nav-text">4.生成文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-实时抓取"><span class="nav-number">6.</span> <span class="nav-text">5.实时抓取</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -821,6 +621,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
