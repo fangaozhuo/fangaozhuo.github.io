@@ -239,6 +239,152 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/02/kNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bigvan">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/van.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梵高的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/02/02/kNN/" itemprop="url">k-近邻算法（KNN）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T13:47:49+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>存在一个样本数据集合，也称作训练样本集，并且样本集中每个数据都存在标签，即我们知道样本集中每一数据与所属分类的对应关系。输人没有标签的新数据后，将新数据的每个特征与样本集中数据对应的特征进行比较，然后算法提取样本集中特征最相似数据（最近邻）的分类标签。<br>具体步骤如下：<br>(1)计算已知类别数据集中的点与当前点之间的距离；<br>(2)按照距离递增次序排序；<br>(3)选取与当前点距离最小的走个点；<br>(4)确定前k个点所在类别的出现频率；<br>(5)返回前k个点出现频率最高的类别作为当前点的预测分类。</p>
+<h1 id="适用数据：数值型和标称型"><a href="#适用数据：数值型和标称型" class="headerlink" title="适用数据：数值型和标称型"></a>适用数据：数值型和标称型</h1><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">from numpy import *</span><br><span class="line">import operator</span><br><span class="line">def createDataSet():</span><br><span class="line">    group=array([[1.0, 1.1],[1.0, 1.0],[0, 0] ,[0, 0.1]])</span><br><span class="line">    labels=[&apos;A&apos;,&apos;A&apos;,&apos;B&apos;,&apos;B&apos;]</span><br><span class="line">    return group,labels</span><br><span class="line">def classify0(inX,dataSet,labels,k):</span><br><span class="line">    dataSetSize=dataSet.shape[0] </span><br><span class="line">    diffMat=tile(inX,(dataSetSize,1))-dataSet</span><br><span class="line">    sqDiffMat=diffMat**2 </span><br><span class="line">    sqDistances=sqDiffMat.sum(axis=1)</span><br><span class="line">    distances=sqDistances**5</span><br><span class="line">    sortedDistIndicies=distances.argsort()</span><br><span class="line">    classCount=&#123;&#125;</span><br><span class="line">    for i in range (k):</span><br><span class="line">        voteIlabel=labels[sortedDistIndicies[i]]</span><br><span class="line">        classCount[voteIlabel]=classCount.get(voteIlabel,0)+1</span><br><span class="line">#标签在classCount字典若不存在，作为key存入标签，同时value=0；若该标签存在，对应的value值加1</span><br><span class="line">    sortedClassCount=sorted(classCount.items(),key=operator.itemgetter(1),reverse=True)</span><br><span class="line">#python3中用classCount.items()以列表返回可遍历的(键, 值) 元组数组，python2中用classCount.iteritems来达到同样目的。</span><br><span class="line">return sortedClassCount[0][0]</span><br></pre></td></tr></table></figure>
+<h1 id="算法解析"><a href="#算法解析" class="headerlink" title="算法解析"></a>算法解析</h1><h2 id="shape函数-得到矩阵的行列数"><a href="#shape函数-得到矩阵的行列数" class="headerlink" title="shape函数 得到矩阵的行列数"></a>shape函数 得到矩阵的行列数</h2><ul>
+<li>eg：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from numpy import *</span><br><span class="line">randMat=mat(random.rand(2,3))#随机生成一个两行三列的矩阵</span><br><span class="line">print(randMat.shape)#行列数</span><br><span class="line">print(randMat.shape[0])#行数</span><br><span class="line">print(randMat.shape[1])#列数</span><br><span class="line"></span><br><span class="line">(2, 3)</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="tile函数的用法"><a href="#tile函数的用法" class="headerlink" title="tile函数的用法"></a>tile函数的用法</h2><ul>
+<li>函数的定义与说明<br>函数格式tile(A,reps),A和reps都是array_lik<br>A的类型众多，几乎所有类型都可以：array, list, tuple, dict, matrix以及基本数据类型int, string, float以及bool类型。<br>reps的类型也很多，可以是tuple，list, dict, array, int, bool.但不可以是float, string, matrix类型。</li>
+<li>eg：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from numpy import *</span><br><span class="line">print(tile(2,3))</span><br><span class="line"></span><br><span class="line">[2 2 2]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from numpy import *</span><br><span class="line">a=(1,2)</span><br><span class="line">print(tile(a,[2,3]))</span><br><span class="line"></span><br><span class="line">[[1 2 1 2 1 2]</span><br><span class="line"> [1 2 1 2 1 2]]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from numpy import *</span><br><span class="line">a=[[1,2,3],[5,4]]</span><br><span class="line">print(tile(a,[2,3]))</span><br><span class="line"></span><br><span class="line">[[list([1, 2, 3]) list([5, 4]) list([1, 2, 3]) list([5, 4]) list([1, 2, 3])</span><br><span class="line">  list([5, 4])]</span><br><span class="line"> [list([1, 2, 3]) list([5, 4]) list([1, 2, 3]) list([5, 4]) list([1, 2, 3])</span><br><span class="line">  list([5, 4])]]</span><br></pre></td></tr></table></figure>
+<h2 id="sum-axis-x-的用法"><a href="#sum-axis-x-的用法" class="headerlink" title="sum(axis=x)的用法"></a>sum(axis=x)的用法</h2><ul>
+<li>对于二维数组，如下结论：sum(axis=0),是对数组的列求和；sum(axis）=1，是对数组的行求和</li>
+<li>对于三维数组，axis可以取1，2，3；有点复杂，请看<a href="http://blog.csdn.net/rifengxxc/article/details/75008427" target="_blank" rel="noopener">这个</a></li>
+</ul>
+<h2 id="argsort-函数是将数组中的元素从小到大排列，提取其对应的index-索引-即第n个元素，其索引值为n-1-。"><a href="#argsort-函数是将数组中的元素从小到大排列，提取其对应的index-索引-即第n个元素，其索引值为n-1-。" class="headerlink" title="argsort()函数是将数组中的元素从小到大排列，提取其对应的index(索引,即第n个元素，其索引值为n-1)。"></a>argsort()函数是将数组中的元素从小到大排列，提取其对应的index(索引,即第n个元素，其索引值为n-1)。</h2><ul>
+<li>eg：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a=np.array([1,4,2,3,0])</span><br><span class="line">#从小到大排列[0,1,2,3,4]</span><br><span class="line">#依次对应的索引值为,即在原数组中是第几个元素，0在原数组是第5个元素，其索引值为4;类推[4，0，2，3，1]</span><br><span class="line">print(a.argsort())</span><br><span class="line"></span><br><span class="line">[4 0 2 3 1]</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="sorted函数"><a href="#sorted函数" class="headerlink" title="sorted函数"></a>sorted函数</h2><h3 id="sorted-d-items-key-operator-itemgetter-x-reverse-True"><a href="#sorted-d-items-key-operator-itemgetter-x-reverse-True" class="headerlink" title="sorted(d.items(), key=operator.itemgetter(x), reverse=True)"></a>sorted(d.items(), key=operator.itemgetter(x), reverse=True)</h3><ul>
+<li>d.items()以列表返回可遍历的(键, 值) 元组数组（tuple）</li>
+<li>key=operator.itemgetter(x),x取0时，按照tuple的第1个元素排列；同理，x取1时，按照tuple的第2个元素排列</li>
+<li>reverse=True，降序排列；reverse=False，升序排列。</li>
+<li>eg：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import operator</span><br><span class="line">d = &#123;&apos;a&apos;:3, &apos;b&apos;:1, &apos;c&apos;:2, &apos;d&apos;:4&#125;</span><br><span class="line">print（sorted(d.items(), key=operator.itemgetter(0),reverse=True)）</span><br><span class="line">print（sorted(d.items(), key=operator.itemgetter(1),reverse=True)）</span><br><span class="line">print(sorted(d.items(), key=operator.itemgetter(1), reverse=False))</span><br><span class="line"></span><br><span class="line">[(&apos;d&apos;, 4), (&apos;c&apos;, 2), (&apos;b&apos;, 1), (&apos;a&apos;, 3)]</span><br><span class="line">[(&apos;d&apos;, 4), (&apos;a&apos;, 3), (&apos;c&apos;, 2), (&apos;b&apos;, 1)]</span><br><span class="line">[(&apos;b&apos;, 1), (&apos;c&apos;, 2), (&apos;a&apos;, 3), (&apos;d&apos;, 4)]</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/如何手动安装python的包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -781,7 +927,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -794,7 +940,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tages/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
