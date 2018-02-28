@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="QWERTYUIOPQWETYUVB收到收到；打瞌睡">
+<meta name="description" content="最近看一个大牛的机器学习代码，在每个函数后面都要加上 12if __name__ == &amp;apos;__main__&amp;apos;：    main（） 一开始很不能理解，经过查阅后终于明白了，总结下来。 一个python的文件有两种使用的方法，第一是直接作为脚本执行，第二是在其他文件的python脚本中被import即调用（模块重用）执行。因此if __name__ == &amp;apos;__main">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="post怎么了">
-<meta property="og:url" content="http://yoursite.com/2018/02/28/post怎么了/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/02/28/怎么了/index.html">
 <meta property="og:site_name" content="梵高的博客">
-<meta property="og:description" content="QWERTYUIOPQWETYUVB收到收到；打瞌睡">
+<meta property="og:description" content="最近看一个大牛的机器学习代码，在每个函数后面都要加上 12if __name__ == &amp;apos;__main__&amp;apos;：    main（） 一开始很不能理解，经过查阅后终于明白了，总结下来。 一个python的文件有两种使用的方法，第一是直接作为脚本执行，第二是在其他文件的python脚本中被import即调用（模块重用）执行。因此if __name__ == &amp;apos;__main">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-28T11:20:25.115Z">
+<meta property="og:updated_time" content="2018-02-28T11:26:12.589Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="post怎么了">
-<meta name="twitter:description" content="QWERTYUIOPQWETYUVB收到收到；打瞌睡">
+<meta name="twitter:description" content="最近看一个大牛的机器学习代码，在每个函数后面都要加上 12if __name__ == &amp;apos;__main__&amp;apos;：    main（） 一开始很不能理解，经过查阅后终于明白了，总结下来。 一个python的文件有两种使用的方法，第一是直接作为脚本执行，第二是在其他文件的python脚本中被import即调用（模块重用）执行。因此if __name__ == &amp;apos;__main">
 
 
 
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/02/28/post怎么了/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/28/怎么了/"/>
 
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/post怎么了/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/28/怎么了/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bigvan">
@@ -309,7 +309,19 @@
       
 
       
-        <p>QWERTYUIOP<br>QWETYUVB<br>收到收到；打瞌睡</p>
+        <pre><code>最近看一个大牛的机器学习代码，在每个函数后面都要加上
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if __name__ == &apos;__main__&apos;：</span><br><span class="line">    main（）</span><br></pre></td></tr></table></figure>
+<pre><code>一开始很不能理解，经过查阅后终于明白了，总结下来。
+一个python的文件有两种使用的方法，第一是直接作为脚本执行，第二是在其他文件的python脚本中被import即调用（模块重用）执行。因此if __name__ == &apos;__main__&apos;:的作用就是控制这两种情况执行代码的过程，在if __name__ == &apos;__main__&apos;:下的代码只有在第一种情况下（即文件作为脚本直接执行）才会被执行，而import到其他脚本中是不会被执行的。
+来举个例子吧，在c盘下建一个a.py文件，写入如下代码
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;i first&apos;)</span><br><span class="line">if __name__==&apos;__main__&apos;:</span><br><span class="line">    print(&apos;i second&apos;)</span><br></pre></td></tr></table></figure>
+<pre><code>在命令提示符中运行a.py结果如下
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\Administrator&gt;cd c:/</span><br><span class="line">c:\&gt;python a.py</span><br><span class="line">i first</span><br><span class="line">i second</span><br></pre></td></tr></table></figure>
+<pre><code>可以发现if __name__ == &apos;__main__&apos;:前后的代码都执行了
+接着我们在c盘下再新建一个b.py文件，写入
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import a</span><br></pre></td></tr></table></figure>
+<pre><code>运行b.py结果如下
+</code></pre><p>```</p>
 
       
     </div>
